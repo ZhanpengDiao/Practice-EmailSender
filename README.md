@@ -1,4 +1,4 @@
-# Practice_EmailSender
+# Practice: Email Sender
 Webpage form with two-dimensional validation checking    
 Mainly for practice PHP
 
