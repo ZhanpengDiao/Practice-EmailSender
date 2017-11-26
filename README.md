@@ -1,5 +1,5 @@
 # Practice_EmailSender
-Webpage form with two-dimensional validation checking
-Mainly for practice PHP
+Webpage input form with two-dimensional validation checking    
+Mainly for practicing PHP
 
-Tech Used: html, jquery, php, javascript, bootstrap
+Tech Used: HTML, jQuery, Bootstrap, Javascript, PHP
