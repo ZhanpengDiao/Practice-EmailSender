@@ -1,5 +1,4 @@
 <?php
-
     $error = "";
 
     if($_POST) {
@@ -19,7 +18,6 @@
 
         $error = "<div class='alert alert-danger' role='alert'>"."<strong>Error Info:</strong><br />".$error."</div>";
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -61,5 +59,29 @@
         <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </form>
     </div>
+
+    <script type="text/javascript">
+        $("form").submit(function(e) {
+            e.preventDefault()
+
+            var error = ""
+
+            if($("#subject").val() == "") {
+                error += "<p>The subject field is required.</p>"
+            }
+
+            if($("#content").val() == "") {
+                error += "<p>The content field is required.</p>"
+            }
+
+            if(error == "") {
+                $("form").unbind("submit").submit()
+            } else {
+                error = "<div class='alert alert-danger' role='alert'>" + error + "</div>"
+                $("#error").html(error)
+            }
+        })
+    </script>
+
 </body>
 </html>
