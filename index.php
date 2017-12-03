@@ -1,10 +1,26 @@
 <?php
+    $error = "";
 
-    print_r($_GET);
+    if($_POST) {
+        if (!$_POST["subject"]) {
+            $error .= "The subject field is required.<br />";
+        }
 
+        if (!$_POST["content"]) {
+            $error .= "The content field is required.<br />";
+        }
+
+        if (!$_POST["address"]) {
+            $error .= "The address field is required.<br />";
+        } else if (!filter_var($_POST["address"], FILTER_VALIDATE_EMAIL)) {
+            $error .= "Invalid email format.<br />";
+        }
+
+        $error = "<div class='alert alert-danger' role='alert'>"."<strong>Error Info:</strong><br />".$error."</div>";
+    }
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Email Sender</title>
@@ -17,7 +33,7 @@
 </head>
 <body>
     <h1>Email Sender</h1>
-    <div id="error"></div>
+    <div class="container"><div id="error"><?php echo $error; ?></div></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -40,7 +56,7 @@
             <label for="Content">Content</label>
             <textarea class="form-control" id="content" name="content"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </form>
     </div>
 
